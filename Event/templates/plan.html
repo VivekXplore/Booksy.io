@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventMaster - Premium Event Planning</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    {%include 'navbar.html' %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Crafting Unforgettable Experiences</h1>
+            <p class="hero-subtitle">From Concerts to Corporate Events - We Make It Perfect</p>
+            <a href="{%url 'booking'%}" class="cta-button">Plan Your Event Now</a>
+        </div>
+    </section>
+    
+    <section id="nothing"></section>
+  
+    <!-- Features Grid -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2>Why Choose <img src="/static/images/pixelcut-export(1)_Nero AI_Standard_Face.png" alt="" style="width: 190px; height: 150px;  position:relative; right:25px; top: 80px;"></h2>
+            <p>Premium event planning services for every occasion</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Smart Scheduling</h3>
+                <p>Real-time availability tracking and instant confirmations</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>Ticketing System</h3>
+                <p>Integrated ticket sales and management platform</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-video"></i>
+                <h3>Live Streaming</h3>
+                <p>HD live streaming for virtual attendees</p>
+            </div>
+            <br>
+            <div class="feature-card">
+                <i class="fa-solid fa-dove"></i>
+                <h3>Wedding Booking</h3>
+                <p>Destination grand-wedding venture</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <!-- Event Booking Cards -->
+<section class="events-booking">
+  <div class="section-header">
+      <h2>Upcoming Events</h2>
+      <p>Book your spot for these exciting events</p>
+  </div>
+  
+  <div class="event-cards-container">
+      <!-- Event Card 1 -->
+      <div class="event-card">
+          <div class="event-image">
+              <img src="/static/images/events/pexels-kevinbidwell-1429763.jpg" alt="Summer Festival" style="background-size: cover; position: relative;">
+              <div class="event-date">June 15, 2024</div>
+          </div>
+          <div class="event-details">
+              <h3>Summer Music Festival</h3>
+              <p>Join 50+ artists for the biggest music event of the year</p>
+              <div class="event-price">$99 - $299</div>
+             <a href="{%url 'payment' %}"> <button class="book-button" data-event="summer-festival">Book Now</button></a>
+
+          </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="event-card">
+          <div class="event-image">
+              <img src="/static/images/events/pexels-product-school-1299359-2678468.jpg" alt="Tech Summit">
+              <div class="event-date">July 22, 2024</div>
+          </div>
+          <div class="event-details">
+              <h3>Tech Innovation Summit</h3>
+              <p>3-day conference with industry leaders</p>
+              <div class="event-price">$199 - $499</div>
+             <a href="{%url 'payment' %}" style=" text-decoration: none;"> <button class="book-button" data-event="summer-festival">Book Now</button></a>
+          </div>
+      </div>
+      
+      <!-- Add more event cards -->
+  </div>
+</section>
+
+<!-- Booking Modal -->
+<div class="booking-modal" id="bookingModal">
+  <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Book Your Tickets</h2>
+      <form class="booking-form">
+          <!-- Add your form fields here -->
+      </form>
+  </div>
+</div>
+
+    <!-- Event Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <h2>Our Recent Events</h2>
+            <p>Capturing moments that matter</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item concert">
+                <img src="/static/images/events/pexels-pham-ngoc-anh-170983008-14237620.jpg" alt="Music Concert">
+                <div class="gallery-overlay">
+                    <h4>Summer Music Festival</h4>
+                    <p>50,000+ Attendees</p>
+                </div>
+            </div>
+            <div class="gallery-item corporate">
+                <img src="/static/images/destinations/pexels-fauxels-3184357.jpg" alt="Corporate Event">
+                <div class="gallery-overlay">
+                    <h4>Tech Conference</h4>
+                    <p>200+ Companies</p>
+                </div>
+            </div>
+            <!-- Add more gallery items -->
+        </div>
+    </section>
+    {%include 'contact.html' %}
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/new-script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{% load static %}
+                            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booksy.io Blog | Event Management Insights</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="description" content="Expert tips, trends, and stories about event management and travel experiences.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="blog-hero-content">
+            <h1>Booksy Insights</h1>
+            <p>Discover Pro Tips for Memorable Events & Travel</p>
+            <form class="blog-search" method="GET" action="">
+                <input type="text" name="q" placeholder="Search articles..." value="{{ request.GET.q }}">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post">
+        <div class="featured-image">
+            <img src="{% static 'images/featured_post.jpg' %}" alt="How to Plan a Perfect Destination Wedding">
+        </div>
+        <div class="featured-content">
+            <span class="category-tag">Weddings</span>
+            <h2>How to Plan a Perfect Destination Wedding</h2>
+            <p class="post-excerpt">Planning a destination wedding can be overwhelming. Here’s everything you need to create a memorable event.</p>
+            <a href="#" class="read-more">Read Article →</a>
+            <div class="author-info">
+                <img src="{% static 'images/author1.jpg' %}" alt="John Doe">
+                <span>John Doe</span>
+                <span>• February 10, 2025</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+        <div class="filter-tabs">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="weddings">Weddings</button>
+            <button data-filter="travel">Travel</button>
+            <button data-filter="corporate">Corporate Events</button>
+        </div>
+
+        <div class="grid-container">
+            <!-- Blog Post 1 -->
+            <article class="blog-card" data-category="travel">
+                <img src="{% static 'images/travel1.jpg' %}" alt="Top 10 Travel Destinations for 2025">
+                <div class="card-content">
+                    <span class="category-tag">Travel</span>
+                    <h3>Top 10 Travel Destinations for 2025</h3>
+                    <p class="excerpt">Discover the hottest travel destinations for 2025, perfect for adventure seekers and cultural enthusiasts alike.</p>
+                    <div class="card-footer">
+                        <span>5 min read</span>
+                        <a href="#" class="share-btn"><i class="fas fa-share-nodes"></i></a>
+                    </div>
+                </div>
+                <a href="#" class="card-overlay-link"></a>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-card" data-category="corporate">
+                <img src="{% static 'images/corporate1.jpg' %}" alt="5 Tips for Hosting a Successful Corporate Event">
+                <div class="card-content">
+                    <span class="category-tag">Corporate Events</span>
+                    <h3>5 Tips for Hosting a Successful Corporate Event</h3>
+                    <p class="excerpt">Create an unforgettable corporate event with these five essential tips for planning and execution.</p>
+                    <div class="card-footer">
+                        <span>4 min read</span>
+                        <a href="#" class="share-btn"><i class="fas fa-share-nodes"></i></a>
+                    </div>
+                </div>
+                <a href="#" class="card-overlay-link"></a>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-card" data-category="weddings">
+                <img src="{% static 'images/wedding1.jpg' %}" alt="Creative Wedding Themes for 2025">
+                <div class="card-content">
+                    <span class="category-tag">Weddings</span>
+                    <h3>Creative Wedding Themes for 2025</h3>
+                    <p class="excerpt">Looking for inspiration? Check out the top wedding themes trending in 2025.</p>
+                    <div class="card-footer">
+                        <span>6 min read</span>
+                        <a href="#" class="share-btn"><i class="fas fa-share-nodes"></i></a>
+                    </div>
+                </div>
+                <a href="#" class="card-overlay-link"></a>
+            </article>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="prev">← Older Posts</a>
+            <a href="#" class="next">Newer Posts →</a>
+        </div>
+    </section>
+
+    {% include 'footer.html' %}
+    
+    <!-- Scripts -->
+    <script src="{% static 'js/blog_filter.js' %}"></script>
+</body>
+</html>

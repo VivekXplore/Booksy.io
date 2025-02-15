@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="contact-section">
+        <h2>Get In Touch With Our Team</h2>
+        <p>Have questions or need more information? We got em'</p>
+
+        <div class="contact-container">
+            <div class="contact-box">
+                <i class="fa-solid fa-envelope" style="color: #ff5722; font-size: xx-large;"></i>
+               
+                <h3>General Inquiries</h3>
+                <p>Reach out with any questions or comments.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abc@gmail.com&su=Subject%20Here&body=Body%20of%20your%20message">Send Email</a>
+
+            </div>
+
+            <div class="contact-box">
+                <i class="fa-solid fa-phone" style="color: #ff5722; font-size: xx-large;"></i>
+               
+                <h3>Customer Support</h3>
+                <p>Need assistance? Our team is ready to help.</p>
+                <a href="tel:+1234567890">Call Support →</a>
+            </div>
+
+            <div class="contact-box">
+                <i class="fa-solid fa-comment" style="color: #ff5722; font-size: xx-large;"></i>
+                
+                <h3>Feedback</h3>
+                <p>We'd love to hear your thoughts and suggestions.</p>
+                <a href="{% url 'feedback' %}">Give Feedback →</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

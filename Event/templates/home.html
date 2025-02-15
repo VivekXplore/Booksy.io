@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour and Travel Event Management</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+<body>
+
+    {%include 'navbar.html' %}
+    <section id="home">
+        <h1> Where Moments Turn <br> Into Memories!</h1>
+        <h4>Reliving Every Moment with Joy and Happiness.</h4>
+        <p>Capture the spirit of celebration with us — a journey of laughter, love, and togetherness.!</p>
+        <button id="meet"> <a href=""> Relive with us </a></button>
+        <button id="meet2"> <a href=""> Learn More → </a></button>
+        <div id="image">
+            <img src="/static/images/danny-howe-bn-D2bCvpik-unsplash.jpg" alt="">
+        </div>
+        
+        
+        <!-- Your page content goes here -->
+        
+
+    </section>
+    <section id="discover">
+        <h1>Experience the Essence</h1>
+        <p>Dive into a collection of mesmerizing experiences and unforgettable memories.</p>
+        <div class="cutlary">
+            <i class="fa-solid fa-utensils" style="color: #2C3E50; font-size: 50px; position:absolute;left: 17px;"></i> 
+            <h3><span>Food</span><span>Odyssey</span></h3>    
+        </div>
+        
+        <div class="music">
+            <i class="fa-solid fa-music" style="color: #2C3E50; font-size: 50px; position:absolute;left: 17px;"></i> 
+            <h3><span>Live</span><span>Music</span></h3>
+  
+        </div>
+        <div class="network">
+            <i class="fa-solid fa-network-wired" style="color: #2C3E50; font-size: 45px; position:absolute;left: 17px;"></i> 
+            <h3><span>Networking</span><span>Chances</span></h3>
+  
+        </div>
+
+        <div class="calander">
+            <i class="fa-solid fa-calendar-days" style="color: #2C3E50; font-size: 50px; position:absolute;left: 17px;"></i> 
+            <h3><span>Event </span><span></span><span>Consultation</span></h3>
+  
+        </div>
+
+        
+    </section>
+
+    
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+            <div class="service-item">
+                <div class="icon-placeholder">
+                    <i class="fa-solid fa-suitcase-rolling fa-bounce" style="color: white; font-size: xx-large;"></i>
+                </div>
+                <h3>Custom Tour Packages</h3>
+                <p>Tailor-made travel experiences designed to meet your unique preferences and interests.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon-placeholder"><i class="fa-solid fa-bars-progress fa-bounce" style="color:white; font-size: xx-large;"></i></div>
+
+                <h3>Event Management</h3>
+                <p>From weddings to corporate events, we plan and execute events that leave lasting impressions.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon-placeholder">
+                    <i class="fa-solid fa-ticket" style="color:white; font-size: xx-large;"></i>
+                </div>
+                <h3>Accommodation Booking</h3>
+                <p>Book the best hotels, resorts, and stays to ensure your comfort during your travels.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon-placeholder">
+                    <i class="fa-solid fa-car" style="color:white; font-size: xx-large;"></i>
+                </div>
+                <h3>Transportation Services</h3>
+                <p>Reliable transportation options, including car rentals and airport transfers, to get you around smoothly.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon-placeholder">
+                    <i class="fa-solid fa-heart-pulse" style="color:white; font-size: xx-large;"></i>
+                </div>
+                <h3>Travel Insurance</h3>
+                <p>Comprehensive travel insurance plans to protect you and your belongings during your trip.</p>
+            </div>
+
+            <div class="service-item">
+                <div class="icon-placeholder" style="color:white; font-size: xx-large;">
+                    <i class="fa-solid fa-person"></i>
+                </div>
+                <h3>Guided Tours</h3>
+                <p>Join our expert guides on tours that showcase the best of your destination.</p>
+            </div>
+
+            <div class="service-item">
+                <div class="icon-placeholder">
+                    <i class="fa-solid fa-plane" style="color:white; font-size: xx-large;"></i>
+                </div>
+                <h3>Adventure Activities</h3>
+                <p>Experience thrilling adventures such as hiking, rafting, and more, safely guided by our experts.</p>
+            </div>
+            <div class="service-item">
+                <div class="icon-placeholder" style="color:white; font-size: xx-large;">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h3>Local Experiences</h3>
+                <p>Immerse yourself in the local culture with experiences like cooking classes and cultural tours.</p>
+            </div>
+        </div>
+    </section>
+    <section class="achievements">
+        <h1>Our Achievements</h1> <br>
+        <br>
+       
+        <br>
+        <div class="achievement">
+            <h2>300+</h2>
+            <p>Events Organized</p>
+        </div>
+        <div class="achievement">
+            <h2>10</h2>
+            <p>Awards Won</p>
+        </div>
+        <div class="achievement">
+            <h2>5+</h2>
+            <p>Tours Conducted</p>
+        </div>
+    </section>
+       </section>
+     <section id="destinations">
+        <div class="destinations-container">
+            <!-- Left Content -->
+            <div class="destinations-content">
+                <h2 class="destinations-title">Explore Your Next Adventure</h2>
+                <p class="destinations-description">Looking for the perfect destination for your next vacation or event? We offer tailored travel experiences and event planning that promise unforgettable memories.</p>
+                <a href="https://www.tripadvisor.com/Attractions-g293889-Activities-Nepal.html" class="explore-btn">Explore more Destinations</a>
+            </div>
+              
+            <!-- Right Image Carousel -->
+            <div class="destinations-carousel">
+                <div class="carousel">
+                    <div class="carousel-images">
+                        <img src="/static/images/destinations/pexels-frans-van-heerden-201846-1022698.jpg" alt="">
+                        <img src="/static/images/destinations/dion-tavenier-h-Qb-9H6Big-unsplash.jpg" alt="">
+                        <img src="/static/images/destinations/pexels-pixabay-417173.jpg" alt="">
+                        <img src="/static/images/destinations/andrew-ridley-Kt5hRENuotI-unsplash.jpg" alt="">
+
+
+                    </div>
+                </div>
+                <!-- Navigation Dots -->
+                <div class="carousel-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="event">
+
+        <div class="collage-grid">
+            
+            <img src="/static/images/events/pexels-asadphoto-169198.jpg" alt="Photo 4">
+            <img src="/static/images/events/pexels-ahmad-syahrir-107128-758744.jpg" alt="Photo 2">
+            <img src="/static/images/events/pexels-214985283-11845552.jpg" alt="Photo 1">
+            <img src="/static/images/events/pexels-asadphoto-169191.jpg" alt="Photo 3">
+            <img src="/static/images/events/pexels-jens-johnsson-14223-66100.jpg" alt="Photo 5">
+            <img src="/static/images/events/pexels-rdne-12169164.jpg" alt="Photo 6">
+            <img src="/static/images/events/pexels-riciardus-307008.jpg" alt="Photo 7">
+            <img src="/static/images/events/pexels-fmaderebner-869258.jpg" alt="Photo 8">
+            <img src="/static/images/events/pexels-cottonbro-5195504.jpg" alt="Photo 9">
+        </div>
+        <br> 
+        <br>           
+    
+       {%include 'contact.html' %}
+    
+    <section class="work">
+
+    </section>
+    
+
+
+    <section class="location-section">
+        <div class="location-content">
+            <h2>Find Us Here!</h2>
+            <p>Join us at our central location, where all the magic happens. Plan your visit and be part of the excitement.</p>
+
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.387694479462!2d85.32423497543564!3d27.705235725252683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1902a90f5e65%3A0x7dfbbbddd6351f43!2sKathmandu!5e0!3m2!1sen!2snp!4v1707148741000!5m2!1sen!2snp" 
+                width="500px" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    {%include 'footer.html' %}
+        
+    <script src="{% static 'js/script.js' %}"></script>
+
+   
+   </body>
+   </html> 
+
+
+
+

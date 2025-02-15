@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">
+                <button style="height: 50px; width: 70px; color:white; border-radius: 50px; background-color: rgb(255, 0, 98);">
+                    Home
+                </button>
+            </a>
+        </nav>
+    </header>
+
+    <div class="event-planner-container">
+        <div class="header">
+            <h2>Plan Your Perfect Event</h2>
+            <p>Select your event type to check availability and pricing</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Wedding Event -->
+            <div class="event-card">
+                <h3>Wedding Events</h3>
+                <div class="pricing">
+                    <span class="price">From $2999</span>
+                    <span class="duration">Full-day booking</span>
+                </div>
+                <div class="availability">
+                    <span class="status available">5 Dates Available</span>
+                </div>
+                <button class="book-btn"  onclick="openModal('wedding')">Plan Wedding</button>
+            </div>
+
+            <!-- Seminar Event -->
+            <div class="event-card">
+                <h3>Corporate Seminars</h3>
+                <div class="pricing">
+                    <span class="price">From $999</span>
+                    <span class="duration">Half-day booking</span>
+                </div>
+                <div class="availability">
+                    <span class="status limited">2 Dates Available</span>
+                </div>
+                <button class="book-btn" onclick="openModal('seminar')">Plan Seminar</button>
+            </div>
+
+            <!-- Concert Event -->
+            <div class="event-card">
+                <h3>Live Concerts</h3>
+                <div class="pricing">
+                    <span class="price">From $3800</span>
+                    <span class="duration">Custom hours</span>
+                </div>
+                <div class="availability">
+                    <span class="status unavailable">No Dates Available</span>
+                </div>
+                <button class="book-btn "disabled> Currently Full</button>
+            </div>
+
+            <!-- Custom Trip Event -->
+            <div class="event-card">
+                <h3>Custom Trips</h3>
+                <div class="pricing">
+                    <span class="price">Custom Pricing</span>
+                    <span class="duration">Tailored plans</span>
+                </div>
+                <div class="availability">
+                    <span class="status available">Open Bookings</span>
+                </div>
+                <button class="book-btn" onclick="openModal('travel')">Plan Trip</button>
+            </div>
+        </div>
+
+        <!-- Modal for Event Selection -->
+        <div id="weddingModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('weddingModal')">&times;</span>
+                <h3>Plan Your Wedding</h3>
+                <div class="modal-grid">
+                    <div class="date-picker">
+                        <label>Select Date:</label>
+                        <input type="date" min="2023-11-01">
+                    </div>
+                    <div class="time-slots">
+                        <label>Available Time Slots:</label>
+                        <select id="weddingTime">
+                            <option>9:00 AM - 5:00 PM</option>
+                            <option>6:00 PM - Midnight</option>
+                        </select>
+                    </div>
+                    <div class="charges">
+                        <h4>Base Charges</h4>
+                        <ul>
+                            <li>Venue Rental: $1500</li>
+                            <li>Basic Decoration: $500</li>
+                            <li>Staffing: $400</li>
+                            <li>Total: $2400</li>
+                        </ul>
+                    </div>
+                    <div class="availability-check">
+                        <p class="available">Selected Date is Available</p>
+                        <a href="{%url 'payment' %}"> <button class="confirm-btn">Confirm Booking</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="seminarModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('seminarModal')">&times;</span>
+                <h3>Plan Your Wedding</h3>
+                <div class="modal-grid">
+                    <div class="date-picker">
+                        <label>Select Date:</label>
+                        <input type="date" min="2023-11-01">
+                    </div>
+                    <div class="time-slots">
+                        <label>Available Time Slots:</label>
+                        <select id="weddingTime">
+                            <option>9:00 AM - 5:00 PM</option>
+                            <option>6:00 PM - Midnight</option>
+                        </select>
+                    </div>
+                    <div class="charges">
+                        <h4>Base Charges</h4>
+                        <ul>
+                            <li>Venue Rental: $150</li>
+                            <li>Basic Decoration: $300</li>
+                            <li>Staffing: $549</li>
+                            <li>Total: $999</li>
+                        </ul>
+                    </div>
+                    <div class="availability-check">
+                        <p class="available">Selected Date is Available</p>
+                        <a href="{%url 'payment' %}"> <button class="confirm-btn">Confirm Booking</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Concert Event -->
+<div id="concertModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('concertModal')">&times;</span>
+        <h3>Plan Your Concert</h3>
+        <div class="modal-grid">
+            <div class="date-picker">
+                <label>Select Date:</label>
+                <input type="date" min="2023-11-01">
+            </div>
+            <div class="time-slots">
+                <label>Available Time Slots:</label>
+                <select id="concertTime">
+                    <option>5:00 PM - 10:00 PM</option>
+                    <option>10:00 PM - 2:00 AM</option>
+                </select>
+            </div>
+            <div class="charges">
+                <h4>Base Charges</h4>
+                <ul>
+                    <li>Venue Rental: $2000</li>
+                    <li>Stage Setup: $1000</li>
+                    <li>Sound System: $800</li>
+                    <li>Total: $3800</li>
+                </ul>
+            </div>
+            <div class="availability-check">
+                <p class="available">Selected Date is Available</p>
+                <a href="{%url 'payment' %}"> <button class="confirm-btn">Confirm Booking</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Custom Trip Event -->
+<div id="travelModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('travelModal')">&times;</span>
+        <h3>Plan Your Custom Trip</h3>
+        <div class="modal-grid">
+            <div class="date-picker">
+                <label>Select Date:</label>
+                <input type="date" min="2023-11-01">
+            </div>
+            <div class="time-slots">
+                <label>Available Time Slots:</label>
+                <select id="travelTime">
+                    <option>8:00 AM - 6:00 PM</option>
+                    <option>6:00 PM - 12:00 AM</option>
+                </select>
+            </div>
+            <div class="charges">
+                <h4>Base Charges</h4>
+                <ul>
+                    <li>Flight Cost: $1200</li>
+                    <li>Hotel Stay: $800</li>
+                    <li>Travel Guides: $300</li>
+                    <li>Total: $2300</li>
+                </ul>
+            </div>
+            <div class="availability-check">
+                <p class="available">Selected Date is Available</p>
+                <a href="{%url 'payment' %}"><button class="confirm-btn">Confirm Booking</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+
+        <!-- Modal for Calendar -->
+        <div id="calendarModal" class="modal">
+            <div class="modal-content" style="max-width: 800px;">
+                <span class="close" onclick="closeModal('calendarModal')">&times;</span>
+                <h3 id="modalTitle">Select Event Date</h3>
+                <div id="calendar"></div>
+                <div class="availability-message" style="margin-top: 20px;">
+                    <p id="dateStatus"></p>
+                    <button id="confirmDateBtn" class="confirm-btn disabled" disabled>Confirm Date</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    { title: 'Wedding Event', start: '2025-02-20T10:00:00', end: '2025-02-20T15:00:00' },
+                    { title: 'Corporate Seminar', start: '2025-02-22T09:00:00', end: '2025-02-22T12:00:00' }
+                ]
+            });
+            calendar.render();
+        });
+
+        function openModal(eventType) {
+            const modal = document.getElementById(`${eventType}Modal`);
+            const modalTitle = document.getElementById('modalTitle');
+            
+            // Set the modal title based on event type
+            if (eventType === 'wedding') {
+                modalTitle.textContent = 'Select Wedding Date';
+            } else if (eventType === 'seminar') {
+                modalTitle.textContent = 'Select Seminar Date';
+            } else if (eventType === 'travel') {
+                modalTitle.textContent = 'Select Trip Date';
+            }
+
+            // Display the modal
+            modal.style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            // Close the specific modal
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+        }
+    </script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

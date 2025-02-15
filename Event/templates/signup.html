@@ -1,0 +1,59 @@
+{% load static %}
+{% load socialaccount %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Signup Form</title>
+  <link rel="stylesheet" href="{% static 'style1.css' %}">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <section class="container forms">
+    <div class="form signup">
+      <div class="form-content">
+        <header>Signup</header>
+        <form action="{% url 'signin' %}" method="POST">
+          {% csrf_token %}
+          <div class="field input-field">
+            <input type="email" name="email" placeholder="Email" class="input" value="{{ form.email.value|default:'' }}">
+            {{ form.email.errors }}
+          </div>
+          <div class="field input-field">
+            <input type="text" name="username" placeholder="Username" class="input" value="{{ form.username.value|default:'' }}">
+            {{ form.username.errors }}
+          </div>
+          <div class="field input-field">
+            <input type="password" name="password1" placeholder="Create password" class="password">
+            {{ form.password1.errors }}
+          </div>
+          <div class="field input-field">
+            <input type="password" name="password2" placeholder="Confirm password" class="password">
+            {{ form.password2.errors }}
+          </div>
+          <div class="field button-field">
+            <button type="submit">Signup</button>
+          </div>
+        </form>
+        
+        <div class="form-link">
+          <span>Already have an account? <a href="{% url 'login' %}" class="link login-link">Login</a></span>
+        </div>
+      </div>
+      
+      <div class="line"></div>
+      
+      <div class="media-options">
+        <a href="{% provider_login_url 'google' %}" class="field google">
+          <img src="{% static 'images/google.png' %}" alt="Google" class="google-img">
+          Signup with Google
+        </a>
+      </div>
+    </div>
+  </section>
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><img src="/static/images/pixelcut-export(1)_Nero AI_Standard_Face.png" alt="" style="width: 100%; height: 140px; left: -90px; top: 15px;"></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'plan' %}">Plan</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+                <li><button id="contact1"><a href="#contact-section">Contact →</a></button></li>
+
+                {% if user.is_authenticated %}
+                <li>
+                    <!-- Display profile picture when logged in -->
+                    {% if user.socialaccount_set.all %}
+                        {% with user.socialaccount_set.first.extra_data as extra_data %}
+                            <img src="{{ extra_data.picture }}" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;"> 
+                        {% endwith %}
+                    {% else %}
+                        <!-- Fallback to email if no social account is found -->
+                        <span>{{ user.email }}</span>
+                    {% endif %}
+                </li>
+                {% else %}
+                <li>
+                    <!-- Display login emoji if not logged in -->
+                    <button id="meet"><a href="{% url 'login' %}">👤</a></button>
+                </li>
+                {% endif %}
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
