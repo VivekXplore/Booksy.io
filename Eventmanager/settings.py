@@ -21,14 +21,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 import os
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY =['django-insecure-n%n_ar#ruka#yj)-ebxf90mu)apez2y)u7p=^i2gwd7y3r-0&p']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
-  
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "vivek.acharya1146@gmail.com"  # Replace with your email
+EMAIL_HOST_PASSWORD = "admin"  # Replace with your app password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 # Application definition
 
 INSTALLED_APPS = [

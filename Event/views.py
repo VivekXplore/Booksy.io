@@ -42,12 +42,25 @@ def user_login(request):
     
     return render(request, 'login.html')
 
+import random
+from django.conf import settings
+from django.core.mail import send_mail
+
+
+       
+
+
+
+ 
+
 def signin(request):
     if request.method == 'POST':
         form = signinform(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.email = request.POST['email']  
+
+              
             user.username = user.email  
             user.save()
 
@@ -107,6 +120,33 @@ def get_available_slots(request, event_type, date):
     available_slots = [slot for slot in all_slots if slot not in booked_slots]
     return JsonResponse({'available_slots': available_slots})
 
+import json
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+import openai
 
+openai.api_key = 'your-openai-api-key'  # Use environment variables in production
 
+@csrf_exempt
+def chatbot(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user_message = data.get('message')
 
+        try:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant. Answer concisely and professionally."},
+                    {"role": "user", "content": user_message}
+                ]
+            )
+            answer = response['choices'][0]['message']['content'].strip()
+        except Exception as e:
+            print(e)
+            answer = "There was an error with the AI service. Try again later."
+
+        return JsonResponse({'response': answer})
+
+    return render(request, 'chatbot.html')

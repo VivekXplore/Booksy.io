@@ -58,3 +58,59 @@ function closeModal() {
         modal.style.display = 'none';
     });
 }
+const chatbotButton = document.getElementById('chatbot-button');
+const chatbox = document.getElementById('chatbox');
+const sendButton = document.getElementById('send-button');
+const inputBox = document.getElementById('input-box');
+const chatLog = document.getElementById('chat-log');
+
+chatbotButton.addEventListener('click', () => {
+  chatbox.style.display = chatbox.style.display === 'none' ? 'flex' : 'none';
+});
+
+sendButton.addEventListener('click', sendMessage);
+inputBox.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
+});
+
+function sendMessage() {
+  const message = inputBox.value.trim();
+  if (!message) return;
+
+  appendMessage('user', message);
+  inputBox.value = '';
+
+  fetch('/chat/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': getCookie('csrftoken')
+    },
+    body: JSON.stringify({ message: message })
+  })
+  .then(response => response.json())
+  .then(data => appendMessage('bot', data.response));
+}
+
+function appendMessage(sender, message) {
+  const div = document.createElement('div');
+  div.className = `message ${sender}`;
+  div.textContent = (sender === 'user' ? ">> " : "SYS: ") + message;
+  chatLog.appendChild(div);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}

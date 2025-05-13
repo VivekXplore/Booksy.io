@@ -16,7 +16,7 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'), 
     path('booking/', views.booking, name='booking'), 
     path('payment/', views.payment, name='payment'), 
-     
+    path('chatbot',views.chatbot,name='chatbot'),
      
     
 
